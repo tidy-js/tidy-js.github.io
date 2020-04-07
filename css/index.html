@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="#000" name="color-scheme">
+    <meta content="width=device-width" name="viewport">
+    <meta content="Tidy your CSS files online by pasting some CSS code into the text area below, or by opening a CSS file to start the tidy." name="description">
+    <title>Tidy CSS Online</title>
+    <link href="../favicon.ico" rel="icon">
+    <link href="../index.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="..">Tidy</a> &raquo; Tidy CSS</h1>
+      <p>Paste your CSS code into the text area below, or open a CSS file to start the tidy.</p>
+      <hr>
+    </header>
+    <main>
+      <form data-files="text/css">
+        <p>
+          <textarea name="source[from]" placeholder="Try &ldquo;Ctrl + O&rdquo; to open CSS files&hellip;"></textarea><!--
+       --><textarea hidden name="source[to]" placeholder="Nothing here. Press the &ldquo;Backspace&rdquo; key to reset the form." readonly></textarea>
+        </p>
+        <p>
+          <button name="v" type="submit">Tidy</button><!--
+       --><button hidden name="x" type="reset">Back</button>
+        </p>
+      </form>
+      <p><small>CSS beautifier powered by <a href="https://github.com/beautify-web/css-beautify" rel="nofollow" target="_blank">@beautify-web/css-beautify</a>.</small></p>
+    </main>
+    <footer>
+      <hr>
+      <p>&copy; 2020 <a href="https://taufik-nurrohman.js.org">Taufik Nurrohman</a></p>
+    </footer>
+    <script src="tidy.css/index.js"></script>
+    <script src="../index.js"></script>
+    <script>
+    function tidy(text, o) {
+        var result = css_beautify(text, o);
+        return result ? {
+            code: result
+        } : {
+            error: {
+                message: 'Test.'
+            }
+        };
+    }
+    </script>
+  </body>
+</html>
