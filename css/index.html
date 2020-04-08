@@ -21,12 +21,27 @@
           <textarea name="source[from]" placeholder="Try &ldquo;Ctrl + O&rdquo; to open CSS files&hellip;"></textarea><!--
        --><textarea hidden name="source[to]" placeholder="Nothing here. Press the &ldquo;Backspace&rdquo; key to reset the form." readonly></textarea>
         </p>
+        <details>
+          <summary>Options</summary>
+          <p>
+            <label>
+              <input checked name="state[newline_between_rules]" type="checkbox">
+              <span>Insert new line between rules.</span>
+            </label>
+            <br>
+            <label>
+              <input checked name="state[selector_separator_newline]" type="checkbox">
+              <span>Insert new line between selectors.</span>
+            </label>
+            <!-- TODO -->
+            <input name="state[indent_size]" type="hidden" value="2">
+          </p>
+        </details>
         <p>
           <button name="v" type="submit">Tidy</button><!--
        --><button hidden name="x" type="reset">Back</button>
         </p>
       </form>
-      <p><small>CSS beautifier powered by <a href="https://github.com/beautify-web/css-beautify" rel="nofollow" target="_blank">@beautify-web/css-beautify</a>.</small></p>
     </main>
     <footer>
       <hr>
@@ -36,14 +51,10 @@
     <script src="../index.js"></script>
     <script>
     function tidy(text, o) {
-        var result = css_beautify(text, o);
-        return result ? {
-            code: result
-        } : {
-            error: {
-                message: 'Test.'
-            }
-        };
+        return {value: css_beautify(text, Object.assign({
+            newline_between_rules: false,
+            selector_separator_newline: false
+        }, o))};
     }
     </script>
   </body>

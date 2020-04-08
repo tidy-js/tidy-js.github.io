@@ -21,12 +21,23 @@
           <textarea name="source[from]" placeholder="Try &ldquo;Ctrl + O&rdquo; to open HTML files&hellip;"></textarea><!--
        --><textarea hidden name="source[to]" placeholder="Nothing here. Press the &ldquo;Backspace&rdquo; key to reset the form." readonly></textarea>
         </p>
+        <details>
+          <summary>Options</summary>
+          <p>
+            <label>
+              <input checked name="state[indent_inner_html]" type="checkbox">
+              <span> Indent inner HTML</span>
+            </label>
+            <!-- TODO -->
+            <input name="state[indent_size]" type="hidden" value="2">
+            <input name="state[indent_scripts]" type="hidden" value="keep">
+          </p>
+        </details>
         <p>
           <button name="v" type="submit">Tidy</button><!--
        --><button hidden name="x" type="reset">Back</button>
         </p>
       </form>
-      <p><small>HTML beautifier powered by <a href="https://github.com/beautify-web/html-beautify" rel="nofollow" target="_blank">@beautify-web/html-beautify</a>.</small></p>
     </main>
     <footer>
       <hr>
@@ -38,14 +49,9 @@
     <script src="../index.js"></script>
     <script>
     function tidy(text, o) {
-        var result = html_beautify(text, o);
-        return result ? {
-            code: result
-        } : {
-            error: {
-                message: 'Test.'
-            }
-        };
+        return {value: html_beautify(text, Object.assign({
+            indent_inner_html: false
+        }, o))};
     }
     </script>
   </body>
