@@ -218,7 +218,7 @@
     doSessionRestore();
 
     // Google Analytic
-    if (-1 !== ['http', 'https'].indexOf(win.location.protocol) && '127.0.0.1' !== win.location.hostname) {
+    if (-1 !== ['http:', 'https:'].indexOf(win.location.protocol) && '127.0.0.1' !== win.location.hostname) {
         addEventTo(win, 'load', function() {
             !function(e){function t(){e.dataLayer.push(arguments)}e.dataLayer=e.dataLayer||[],t("js",new Date),t("config","UA-132078233-1")}(win);
             var script = doc.createElement('script');
