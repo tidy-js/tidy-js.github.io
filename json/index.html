@@ -4,31 +4,25 @@
     <meta charset="utf-8">
     <meta content="#000" name="color-scheme">
     <meta content="width=device-width" name="viewport">
-    <meta content="Tidy your JavaScript files online by pasting some JavaScript code into the text area below, or by opening a JavaScript file to start the tidy." name="description">
-    <title>Tidy JavaScript Online</title>
+    <meta content="Tidy your JSON files online by pasting some JSON code into the text area below, or by opening a JSON file to start the tidy." name="description">
+    <title>Tidy JSON Online</title>
     <link href="../favicon.ico" rel="icon">
     <link href="../index.css" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1><a href="..">Tidy</a> &raquo; Tidy JavaScript</h1>
-      <p>Paste your JavaScript code into the text area below, or open a JavaScript file to start the tidy. This tool supports ES6 syntax!</p>
+      <h1><a href="..">Tidy</a> &raquo; Tidy JSON</h1>
+      <p>Paste your JSON code into the text area below, or open a JSON file to start the tidy.</p>
       <hr>
     </header>
     <main>
       <form>
         <p>
-          <textarea name="source[from]" placeholder="Try &ldquo;Ctrl + O&rdquo; to open JavaScript files&hellip;"></textarea><!--
+          <textarea name="source[from]" placeholder="Try &ldquo;Ctrl + O&rdquo; to open JSON files&hellip;"></textarea><!--
        --><textarea hidden name="source[to]" placeholder="Nothing here. Press the &ldquo;Backspace&rdquo; key to reset the form." readonly></textarea>
         </p>
         <details>
           <summary>Options</summary>
-          <p>
-            <label>
-              <input checked name="state[unescape_strings]" type="checkbox">
-              <span>Unescape escaped strings.<br><small>Decode printable characters encoded in <var>x**</var> notation.</small></span>
-            </label>
-          </p>
           <p>
             <label>
               <input name="state[indent_style]" type="radio" value="&Tab;">
@@ -50,21 +44,24 @@
           <button name="v" title="Ctrl + Enter" type="submit">Tidy</button><!--
        --><button hidden name="x" title="Backspace" type="reset">Back</button>
         </p>
-        <input name="state[indent_with_tabs]" type="hidden" value="true">
-        <input name="files" type="hidden" value="application/javascript application/x-javascript text/javascript">
+        <input name="files" type="hidden" value="application/json">
       </form>
     </main>
     <footer>
       <hr>
       <p>&copy; 2020 <a href="https://taufik-nurrohman.js.org">Taufik Nurrohman</a></p>
     </footer>
-    <script src="tidy.js/index.js"></script>
     <script src="../index.js#tidy"></script>
     <script>
     function tidy(text, o) {
-        var r = o.indent_style;
-        delete o.indent_style;
-        return {value: js_beautify(text, o).replace(/\t/g, r)};
+        // Nothing special :D
+        var out;
+        try {
+            out = {value: JSON.stringify(JSON.parse(text), null, o.indent_style)};
+        } catch (e) {
+            out = {value: e};
+        }
+        return out;
     }
     </script>
   </body>

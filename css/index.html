@@ -16,7 +16,7 @@
       <hr>
     </header>
     <main>
-      <form data-files="text/css">
+      <form>
         <p>
           <textarea name="source[from]" placeholder="Try &ldquo;Ctrl + O&rdquo; to open CSS files&hellip;"></textarea><!--
        --><textarea hidden name="source[to]" placeholder="Nothing here. Press the &ldquo;Backspace&rdquo; key to reset the form." readonly></textarea>
@@ -33,14 +33,30 @@
               <input checked name="state[selector_separator_newline]" type="checkbox">
               <span>Insert new line between selectors.</span>
             </label>
-            <!-- TODO -->
-            <input name="state[indent_size]" type="hidden" value="2">
+          </p>
+          <p>
+            <label>
+              <input name="state[indent_style]" type="radio" value="&Tab;">
+              <span>Indent with 1 tab.</span>
+            </label>
+            <br>
+            <label>
+              <input checked name="state[indent_style]" type="radio" value="  ">
+              <span>Indent with 2 space(s).</span>
+            </label>
+            <br>
+            <label>
+              <input name="state[indent_style]" type="radio" value="    ">
+              <span>Indent with 4 space(s).</span>
+            </label>
           </p>
         </details>
         <p>
-          <button name="v" type="submit">Tidy</button><!--
-       --><button hidden name="x" type="reset">Back</button>
+          <button name="v" title="Ctrl + Enter" type="submit">Tidy</button><!--
+       --><button hidden name="x" title="Backspace" type="reset">Back</button>
         </p>
+        <input name="state[indent_with_tabs]" type="hidden" value="true">
+        <input name="files" type="hidden" value="text/css">
       </form>
     </main>
     <footer>
@@ -48,13 +64,15 @@
       <p>&copy; 2020 <a href="https://taufik-nurrohman.js.org">Taufik Nurrohman</a></p>
     </footer>
     <script src="tidy.css/index.js"></script>
-    <script src="../index.js"></script>
+    <script src="../index.js#tidy"></script>
     <script>
     function tidy(text, o) {
+        var r = o.indent_style;
+        delete o.indent_style;
         return {value: css_beautify(text, Object.assign({
             newline_between_rules: false,
             selector_separator_newline: false
-        }, o))};
+        }, o)).replace(/\t/g, r)};
     }
     </script>
   </body>

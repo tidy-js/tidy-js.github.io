@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta content="#000" name="color-scheme">
+    <meta content="width=device-width" name="viewport">
+    <meta content="Remove trailing white-spaces in your text files online by pasting some text into the text area below, or by opening a text file to start the tidy." name="description">
+    <title>Tidy JSON Online</title>
+    <link href="../favicon.ico" rel="icon">
+    <link href="../index.css" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1><a href="..">Tidy</a> &raquo; Trim Trailing Spaces</h1>
+      <p>Paste your text into the text area below, or open a text file to start the tidy.</p>
+      <hr>
+    </header>
+    <main>
+      <form>
+        <p>
+          <textarea name="source[from]" placeholder="Try &ldquo;Ctrl + O&rdquo; to open files&hellip;"></textarea><!--
+       --><textarea hidden name="source[to]" placeholder="Nothing here. Press the &ldquo;Backspace&rdquo; key to reset the form." readonly></textarea>
+        </p>
+        <details>
+          <summary>Options</summary>
+          <p>No options available.</p>
+        </details>
+        <p>
+          <button name="v" title="Ctrl + Enter" type="submit">Tidy</button><!--
+       --><button hidden name="x" title="Backspace" type="reset">Back</button>
+        </p>
+        <input name="files" type="hidden" value="application/javascript application/json text/css text/javascript text/plain">
+      </form>
+    </main>
+    <footer>
+      <hr>
+      <p>&copy; 2020 <a href="https://taufik-nurrohman.js.org">Taufik Nurrohman</a></p>
+    </footer>
+    <script src="../index.js#tidy"></script>
+    <script>
+    function tidy(text, o) {
+        // Nothing special :D
+        return {
+            value: text.split('\n').map(function(t) {
+                return t.trimEnd();
+            }).join('\n')
+        }
+    }
+    </script>
+  </body>
+</html>
