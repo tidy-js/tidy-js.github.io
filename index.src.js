@@ -222,7 +222,7 @@
         addEventTo(win, 'load', function() {
             !function(e){function t(){e.dataLayer.push(arguments)}e.dataLayer=e.dataLayer||[],t("js",new Date),t("config","UA-132078233-1")}(win);
             var script = doc.createElement('script');
-            script.async = true;
+            // script.async = true;
             script.src = 'https://www.googletagmanager.com/gtag/js?id=UA-132078233-1';
             doc.body.appendChild(script);
         });
