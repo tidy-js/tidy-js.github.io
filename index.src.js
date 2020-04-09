@@ -49,7 +49,7 @@
                 query += '&' + encodeURIComponent(key) + ('undefined' === typeof value ? "" : '=' + encodeURIComponent(value));
             }
         }
-        state.form = query ? q2o(query.slice(1)) : {};console.log(state)
+        state.form = query ? q2o(query.slice(1)) : {};
     }
 
     function doSessionRestore() {
