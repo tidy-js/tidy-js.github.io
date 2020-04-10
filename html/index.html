@@ -32,28 +32,31 @@
           <p>
             <label>
               <input name="state[indent_style]" type="radio" value="&Tab;">
-              <span>Indent with 1 tab.</span>
+              <span>Indent HTML with 1 tab.</span>
             </label>
             <br>
             <label>
               <input checked name="state[indent_style]" type="radio" value="  ">
-              <span>Indent with 2 space(s).</span>
+              <span>Indent HTML with 2 space(s).</span>
             </label>
             <br>
             <label>
               <input name="state[indent_style]" type="radio" value="    ">
-              <span>Indent with 4 space(s).</span>
+              <span>Indent HTML with 4 space(s).</span>
             </label>
           </p>
         </details>
         <p>
           <button name="v" title="Ctrl + Enter" type="submit">Tidy</button><!--
-       --><button hidden name="x" title="Backspace" type="reset">Back</button>
+       --><button hidden name="x" title="Backspace" type="reset">Back</button> <label>
+            <input name="auto" type="checkbox" value="true">
+            <span>Tidy on paste</span>
+          </label>
         </p>
         <input name="state[indent_scripts]" type="hidden" value="keep">
         <input name="state[indent_with_tabs]" type="hidden" value="true">
         <input name="state[preserve_new_lines]" type="hidden" value="false">
-        <input name="files" type="hidden" value="application/xml text/html text/xml">
+        <input name="files" type="hidden" value="application/xml application/xhtml application/xhtml+xml image/svg+xml text/html text/xhtml text/xml">
       </form>
     </main>
     <footer>

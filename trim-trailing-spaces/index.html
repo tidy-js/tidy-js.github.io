@@ -5,7 +5,7 @@
     <meta content="#000" name="theme-color">
     <meta content="width=device-width" name="viewport">
     <meta content="Remove trailing white-spaces in your text files online by pasting some text into the text area below, or by opening a text file to start the tidy." name="description">
-    <title>Tidy JSON Online</title>
+    <title>Trim Trailing Spaces Online</title>
     <link href="../favicon.ico" rel="icon">
     <link href="../index.css" rel="stylesheet">
   </head>
@@ -27,9 +27,12 @@
         </details>
         <p>
           <button name="v" title="Ctrl + Enter" type="submit">Tidy</button><!--
-       --><button hidden name="x" title="Backspace" type="reset">Back</button>
+       --><button hidden name="x" title="Backspace" type="reset">Back</button> <label>
+            <input name="auto" type="checkbox" value="true">
+            <span>Tidy on paste</span>
+          </label>
         </p>
-        <input name="files" type="hidden" value="application/javascript application/json text/css text/javascript text/plain">
+        <input name="files" type="hidden" value="application/javascript application/json application/x-javascript application/xml application/xhtml application/xhtml+xml image/svg+xml text/css text/html text/javascript text/plain text/xhtml text/xml">
       </form>
     </main>
     <footer>
