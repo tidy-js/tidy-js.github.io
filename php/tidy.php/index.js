@@ -1,1 +1,0 @@
-!function(r,t){var c,i=t.body,n=t.currentScript.src.split("/");n.pop(),c=n.join("/"),["parse","tidy"].forEach(function(r){var n=t.createElement("script");n.src=c+"/"+r+".js",i.appendChild(n)})}(0,this.document);

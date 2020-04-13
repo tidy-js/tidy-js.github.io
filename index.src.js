@@ -209,7 +209,7 @@
                     sourceFrom.selectionEnd = v + value.length + 2;
                 };
             } else if (type) {
-                alert('MIME type `' + type + '` is not allowed.');
+                alert('MIME type “' + type + '” is not allowed.');
             }
         }
         setTimeout(function() {
@@ -255,7 +255,7 @@
             push('js', new Date);
             push('config', 'UA-163395040-2');
             var analytic = doc.createElement('script');
-            // script.async = true;
+            // analytic.async = true;
             analytic.src = 'https://www.googletagmanager.com/gtag/js?id=UA-163395040-2';
             body.appendChild(analytic);
         });
